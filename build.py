@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 PATCH = """
@@ -16,6 +17,9 @@ def run(cmd: str) -> int:
     if r:
         raise BuildError(f'A Error raised when executing "{cmd}"')
 
+
+os.mkdir("MeiliSearch")
+os.chdir("MeiliSearch")
 
 run("git clone https://github.com/meilisearch/MeiliSearch.git --depth=1 .")
 
